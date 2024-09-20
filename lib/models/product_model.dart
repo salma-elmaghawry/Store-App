@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 
 class ProductModel {
   final int id;
@@ -6,6 +5,7 @@ class ProductModel {
   final double price;
   final String description;
   final String image;
+  final RatingModel rating;
 
   //constructor
   ProductModel(
@@ -13,7 +13,8 @@ class ProductModel {
       required this.title,
       required this.price,
       required this.description,
-      required this.image});
+      required this.image,
+      required this.rating});
   //factory constructor
   factory ProductModel.fromJson(jsonData) {
     return ProductModel(
@@ -21,19 +22,18 @@ class ProductModel {
         title: jsonData['title'],
         price: jsonData['price'],
         description: jsonData['description'],
-        image: jsonData['image']);
+        image: jsonData['image'],
+        rating: RatingModel.fromJson(jsonData['rating']));
   }
 }
 
 class RatingModel {
   final double rate;
   final int count;
-//constructor 
+//constructor
   RatingModel({required this.rate, required this.count});
-//factory constructor 
+//factory constructor
   factory RatingModel.fromJson(jsonData) {
     return RatingModel(rate: jsonData['rate'], count: jsonData['count']);
   }
 }
-
-
