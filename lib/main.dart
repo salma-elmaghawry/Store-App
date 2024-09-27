@@ -126,14 +126,11 @@ class _MyHomePageState extends State<MyHomePage> {
             "description": "lorem ipsum set",
             "image": " https://i.pravatar.cc",
             "category": "electronic",
-            }
-          , headers: {
-            'Accept':'application/json',
-            'Content-Type':'application/x-www-form-urlencoded',
+          }, headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/x-www-form-urlencoded',
+          });
 
-          }
-          );
-        
           print(response.body);
         },
         tooltip: 'Increment',
