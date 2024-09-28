@@ -5,15 +5,19 @@ import 'package:http/http.dart' as http;
 
 class Api {
   //get function
-  Future<dynamic> get({required String url,@required String? token}) async {
-      Map<String, String> headers = {
+  Future<dynamic> get({required String url,
+  //@required String? token
+  }) async {
+    //   Map<String, String> headers = {
       
-      'Content-Type': 'application/x-www-form-urlencoded'
-    };
-      if (token != null) {
-      headers.addAll({});
-    }
-    http.Response response = await http.get(Uri.parse(url),headers: headers);
+    //   'Content-Type': 'application/x-www-form-urlencoded'
+    // };
+    //   if (token != null) {
+    //   headers.addAll({});
+    // }
+    http.Response response = await http.get(Uri.parse(url),
+    //headers: headers
+    );
     if (response.statusCode == 200) {
       return jsonDecode(response.body);
     } else {

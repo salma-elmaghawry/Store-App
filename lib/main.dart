@@ -3,6 +3,7 @@ import 'package:http/http.dart' as http;
 import 'dart:developer';
 
 import 'package:store_app/screens/home_page.dart';
+import 'package:store_app/screens/update_product_page.dart';
 
 void main() {
   runApp(const StoreApp());
@@ -17,6 +18,7 @@ class StoreApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routes: {
         HomePage.id:(context)=>HomePage(),
+        UpdateProductPage.id:(context)=>UpdateProductPage(),
       },
       initialRoute: HomePage.id ,
       home: Scaffold(

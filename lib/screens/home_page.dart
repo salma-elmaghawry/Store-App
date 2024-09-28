@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:store_app/helper/constants/const_colors.dart';
+import 'package:store_app/models/product_model.dart';
+import 'package:store_app/services/get_all_product_service.dart';
+import 'package:store_app/widgets/custom_card.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -9,100 +12,66 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-          preferredSize: Size.fromHeight(70),
-          child: Container(
-            decoration: const BoxDecoration(
-                color: secColor,
-                borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(45),
-                    bottomRight: Radius.circular(45))),
-            child: Padding(
-              padding: const EdgeInsets.only(top: 35, bottom: 7),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text(
-                    "Shoply",
-                    style: TextStyle(
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white),
-                  ),
-                  IconButton(
-                      onPressed: () {},
-                      icon: Icon(
-                        FontAwesomeIcons.cartShopping,
-                        color: Colors.white,
-                        size: 25,
-                      ))
-                ],
-              ),
-            ),
-          )),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Stack(
-          clipBehavior: Clip.none,
-          children: [
-            Container(
-              height: 170,
-              width: 200,
-              decoration: BoxDecoration(boxShadow: [
-                BoxShadow(
-                  blurRadius: 50,
-                  color: textColor.withOpacity(0.1),
-                  spreadRadius: 0,
-                  offset: Offset.zero,
-                )
-              ]),
-              child: Card(
-                elevation: 7,
-                child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'salma',
-                        style: TextStyle(color: textColor, fontSize: 16),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            r"$25",
-                            style: TextStyle(
-                                color: const Color.fromARGB(255, 241, 186, 19),
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          IconButton(
-                              onPressed: () {},
-                              icon: Icon(
-                                Icons.favorite,
-                                color: textColor,
-                              )),
-                        ],
-                      )
-                    ],
-                  ),
+      backgroundColor: Colors.white,
+        appBar: PreferredSize(
+            preferredSize: Size.fromHeight(70),
+            child: Container(
+              decoration: const BoxDecoration(
+                  color: secColor,
+                  borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(45),
+                      bottomRight: Radius.circular(45))),
+              child: Padding(
+                padding: const EdgeInsets.only(top: 35, bottom: 7),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text(
+                      "Shoply",
+                      style: TextStyle(
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white),
+                    ),
+                    IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                          FontAwesomeIcons.cartShopping,
+                          color: Colors.white,
+                          size: 25,
+                        ))
+                  ],
                 ),
               ),
-            ),
-            Positioned(
-              right: 32,
-              bottom: 95,
-              
-                child: Image.network(
-              "https://th.bing.com/th/id/R.4aca24ef5b26266d68d9103d407b1ec2?rik=oi5BznOpjzDKpQ&pid=ImgRaw&r=0",
-              height: 100,
             )),
-          ],
+        body: Padding(
+          padding: const EdgeInsets.only(top: 32, left: 14, right: 14),
+          child:FutureBuilder<List<ProductModel>>(
+  future: GetAllProductService().getAllproduct(),
+  builder: (context, snapshot) {
+    if (snapshot.connectionState == ConnectionState.waiting) {
+      return Center(child: CircularProgressIndicator(color: secColor));
+    } else if (snapshot.hasError) {
+      return Center(child: Text('Error: ${snapshot.error}'));
+    } else if (snapshot.hasData) {
+      List<ProductModel> products = snapshot.data!;
+      return GridView.builder(
+        itemCount: products.length,
+        clipBehavior: Clip.none,
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          crossAxisSpacing: 15,
+          mainAxisSpacing: 20,
         ),
-      ),
-    );
+        itemBuilder: (context, index) {
+          return customcard(product: products[index]);
+        },
+      );
+    } else {
+      return Center(child: Text('No products found'));
+    }
+  },
+),
+        ));
   }
 }
