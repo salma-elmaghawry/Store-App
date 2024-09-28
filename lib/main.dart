@@ -3,6 +3,7 @@ import 'package:http/http.dart' as http;
 import 'dart:developer';
 
 import 'package:store_app/screens/home_page.dart';
+import 'package:store_app/screens/onboarding.dart';
 import 'package:store_app/screens/update_product_page.dart';
 
 void main() {
@@ -17,10 +18,11 @@ class StoreApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {
-        HomePage.id:(context)=>HomePage(),
-        UpdateProductPage.id:(context)=>UpdateProductPage(),
+        HomePage.id: (context) => HomePage(),
+        UpdateProductPage.id: (context) => UpdateProductPage(),
+        OnboardingScreen.id: (context) => OnboardingScreen(),
       },
-      initialRoute: HomePage.id ,
+      initialRoute: OnboardingScreen.id,
       home: Scaffold(
         //3 splash scrrens
         appBar: AppBar(
