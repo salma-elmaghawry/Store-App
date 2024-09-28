@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:store_app/helper/constants/const_colors.dart';
 import 'package:store_app/models/product_model.dart';
 import 'package:store_app/screens/update_product_page.dart';
+import 'package:store_app/widgets/favourite.dart';
 
 class customcard extends StatelessWidget {
   customcard({required this.product, super.key});
@@ -11,7 +12,7 @@ class customcard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, UpdateProductPage.id);
+        Navigator.pushNamed(context, UpdateProductPage.id,arguments: product);
       },
       child: Stack(
         clipBehavior: Clip.none,
@@ -51,12 +52,7 @@ class customcard extends StatelessWidget {
                               fontSize: 17,
                               fontWeight: FontWeight.bold),
                         ),
-                        IconButton(
-                            onPressed: () {},
-                            icon: Icon(
-                              Icons.favorite,
-                              color: textColor,
-                            )),
+                        FavoriteIcon(),
                       ],
                     )
                   ],
