@@ -15,7 +15,7 @@ class CustomButton extends StatelessWidget {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         backgroundColor: secColor,
-        minimumSize: Size(double.infinity, 60),
+        minimumSize: const Size(double.infinity, 60),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(50),
         ),
@@ -23,7 +23,7 @@ class CustomButton extends StatelessWidget {
       onPressed: onPressed, // Use the VoidCallback here
       child: Text(
         title,
-        style: TextStyle(
+        style:const TextStyle(
           fontSize: 19,
           color: Colors.white,
           fontWeight: FontWeight.bold,

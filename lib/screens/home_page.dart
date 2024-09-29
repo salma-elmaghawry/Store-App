@@ -14,7 +14,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
         appBar: PreferredSize(
-            preferredSize: Size.fromHeight(70),
+            preferredSize:const Size.fromHeight(70),
             child: Container(
               decoration: const BoxDecoration(
                   color: secColor,
@@ -35,7 +35,7 @@ class HomePage extends StatelessWidget {
                     ),
                     IconButton(
                         onPressed: () {},
-                        icon: Icon(
+                        icon:const  Icon(
                           FontAwesomeIcons.cartShopping,
                           color: Colors.white,
                           size: 25,
@@ -50,7 +50,7 @@ class HomePage extends StatelessWidget {
   future: GetAllProductService().getAllproduct(),
   builder: (context, snapshot) {
     if (snapshot.connectionState == ConnectionState.waiting) {
-      return Center(child: CircularProgressIndicator(color: secColor));
+      return Center(child:const  CircularProgressIndicator(color: secColor));
     } else if (snapshot.hasError) {
       return Center(child: Text('Error: ${snapshot.error}'));
     } else if (snapshot.hasData) {
@@ -58,7 +58,7 @@ class HomePage extends StatelessWidget {
       return GridView.builder(
         itemCount: products.length,
         clipBehavior: Clip.none,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        gridDelegate:const  SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           crossAxisSpacing: 15,
           mainAxisSpacing: 20,
@@ -68,7 +68,7 @@ class HomePage extends StatelessWidget {
         },
       );
     } else {
-      return Center(child: Text('No products found'));
+      return const  Center(child: Text('No products found'));
     }
   },
 ),

@@ -62,7 +62,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 onPressed: () {
                   Navigator.pushNamed(context, HomePage.id);
                 },
-                child: Text(
+                child:const  Text(
                   "Get Started",
                   style: TextStyle(color: Colors.white, fontSize: 20),
                 ),
@@ -70,7 +70,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             )
           : Container(
             color: Colors.white,
-              padding: EdgeInsets.symmetric(horizontal: 20),
+              padding:const  EdgeInsets.symmetric(horizontal: 20),
               height: 60,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -79,7 +79,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     onPressed: () {
                       _pageController.jumpToPage(onboardingData.length - 1);
                     },
-                    child: Text(
+                    child: const Text(
                       "Skip",
                       style: TextStyle(color: secColor, fontSize: 18),
                     ),
@@ -92,11 +92,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   TextButton(
                     onPressed: () {
                       _pageController.nextPage(
-                        duration: Duration(milliseconds: 300),
+                        duration:const  Duration(milliseconds: 300),
                         curve: Curves.easeInOut,
                       );
                     },
-                    child: Text(
+                    child:const  Text(
                       "Next",
                       style: TextStyle(color: secColor, fontSize: 18),
                     ),
@@ -111,7 +111,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     return Container(
       height: 10,
       width: currentIndex == index ? 30 : 10,
-      margin: EdgeInsets.only(right: 5),
+      margin: const EdgeInsets.only(right: 5),
       decoration: BoxDecoration(
         color: currentIndex == index ? secColor : Colors.grey,
         borderRadius: BorderRadius.circular(5),
@@ -139,21 +139,21 @@ class OnboardingPage extends StatelessWidget {
           height: 300,
           width: 300,
         ),
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
         Text(
           title,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 24,
             fontWeight: FontWeight.bold,
           ),
         ),
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 30),
           child: Text(
             description,
             textAlign: TextAlign.center,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 16,
               color: Colors.grey,
             ),

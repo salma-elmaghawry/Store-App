@@ -52,7 +52,7 @@ class _UpdateProductPageState extends State<UpdateProductPage> {
                     ),
                     IconButton(
                         onPressed: () {},
-                        icon: Icon(
+                        icon:const  Icon(
                           FontAwesomeIcons.cartShopping,
                           color: Colors.white,
                           size: 22,
@@ -73,7 +73,7 @@ class _UpdateProductPageState extends State<UpdateProductPage> {
                       productName = data;
                     },
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   customTextField(
                     hint: 'Price',
                     inputType: TextInputType.number,
@@ -81,7 +81,7 @@ class _UpdateProductPageState extends State<UpdateProductPage> {
                       price = data;
                     },
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   customTextField(
                     hint: 'Description',
                     onChange: (data) {
@@ -95,7 +95,7 @@ class _UpdateProductPageState extends State<UpdateProductPage> {
                       image = data;
                     },
                   ),
-                  SizedBox(height: 50),
+                  const SizedBox(height: 50),
                   CustomButton(
                     title: 'Update',
                     onPressed: () async {
@@ -111,7 +111,7 @@ class _UpdateProductPageState extends State<UpdateProductPage> {
                       setState(() {});
                     },
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 50,
                   ),
                 ],

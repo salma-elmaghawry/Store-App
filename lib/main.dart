@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'dart:developer';
 
 import 'package:store_app/screens/home_page.dart';
 import 'package:store_app/screens/onboarding.dart';
@@ -26,7 +24,7 @@ class StoreApp extends StatelessWidget {
       home: Scaffold(
         //3 splash scrrens
         appBar: AppBar(
-          title: Text('Shoply'),
+          title:const  Text('Shoply'),
         ),
       ),
     );

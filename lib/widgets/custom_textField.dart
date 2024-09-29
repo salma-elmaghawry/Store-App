@@ -21,7 +21,7 @@ class customTextField extends StatelessWidget {
         suffixIconColor: secColor,
         hintText: hint,
         hintStyle:
-            TextStyle(fontSize: 15, color: Color.fromARGB(255, 156, 155, 155)),
+          const  TextStyle(fontSize: 15, color: Color.fromARGB(255, 156, 155, 155)),
         filled: true,
         fillColor: const Color.fromARGB(255, 224, 224, 221),
         focusedBorder: OutlineInputBorder(
@@ -30,14 +30,14 @@ class customTextField extends StatelessWidget {
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(50),
-          borderSide: BorderSide(
+          borderSide:const  BorderSide(
             width: 0.0,
             color: Colors.transparent,
           ),
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(50),
-          borderSide: BorderSide(
+          borderSide:const  BorderSide(
             width: 0.0,
             color: Colors.transparent,
           ),

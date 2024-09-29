@@ -40,14 +40,14 @@ class customcard extends StatelessWidget {
                   children: [
                     Text(
                       product.title.substring(0, 7),
-                      style: TextStyle(color: textColor, fontSize: 16),
+                      style:const  TextStyle(color: textColor, fontSize: 16),
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
                           r'$' '${product.price.toString()}',
-                          style: TextStyle(
+                          style:const  TextStyle(
                               color: const Color.fromARGB(255, 241, 186, 19),
                               fontSize: 17,
                               fontWeight: FontWeight.bold),
